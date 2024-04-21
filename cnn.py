@@ -104,6 +104,6 @@ for epoch in range(EPOCH):
             pred_y = torch.max(test_output, 1)[1].data.squeeze()
             accuracy = (pred_y == test_y).sum().item() / test_y.size(0)
             print('Epoch: {} | Step: {} | Loss: {} | Accuracy: {}'.format(
-                epoch, step, loss.item(), accuracy))
+              epoch, step, loss.item(), accuracy))
 
 plt.ioff()
