@@ -144,6 +144,7 @@ if __name__ == '__main__':
     plt.xlabel('Steps')
     plt.ylabel('Accuracy (%)')
     plt.legend()
+    
     plt.tight_layout()
     plt.savefig(f'./result/random_performance_{amount}.jpg')
     
