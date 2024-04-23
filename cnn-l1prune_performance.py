@@ -96,8 +96,11 @@ if __name__ == '__main__':
 
     #剪枝前的权重
     torch.save(cnn.state_dict(), f'./result/cnn_initial_weights_{amount}.pth')
+
     #l1_unstructured剪枝
     prune.l1_unstructured(cnn.conv1[0], name='weight', amount=amount)
+    prune.remove(cnn.conv1[0], 'weight')
+    
     #剪枝后的权重
     torch.save(cnn.state_dict(), f'./result/cnn_pruned_weights_{amount}.pth')
 
