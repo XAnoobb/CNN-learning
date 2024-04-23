@@ -147,7 +147,7 @@ if __name__ == '__main__':
 
     plt.tight_layout()
     plt.savefig(f'./result/random_performance_{amount}.jpg')
-    #plt.show()
+    
       
       
 
