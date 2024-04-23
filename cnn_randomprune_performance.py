@@ -71,7 +71,7 @@ class CNN(nn.Module):
 def measure_performance(model, data_loader):
     model.eval()
     start_time = time.time()
-    total, correct = 0, 0
+    total, correct = 0,0
     
     with torch.no_grad():
         for data, targets in data_loader:
