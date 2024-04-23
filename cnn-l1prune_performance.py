@@ -95,14 +95,14 @@ if __name__ == '__main__':
     loss_func = nn.CrossEntropyLoss()
 
     #剪枝前的权重
-    torch.save(cnn.state_dict(), f'./result/cnn_initial_weights_{amount}.pth')
+    torch.save(cnn.state_dict(), f'./result/cnn_l1_initial_weights_{amount}.pth')
 
     #l1_unstructured剪枝
     prune.l1_unstructured(cnn.conv1[0], name='weight', amount=amount)
     prune.remove(cnn.conv1[0], 'weight')
     
     #剪枝后的权重
-    torch.save(cnn.state_dict(), f'./result/cnn_pruned_weights_{amount}.pth')
+    torch.save(cnn.state_dict(), f'./result/cnn_l1_pruned_weights_{amount}.pth')
 
     times, memories, accuracies = [], [], []
 
@@ -146,7 +146,7 @@ if __name__ == '__main__':
     plt.legend()
 
     plt.tight_layout()
-    plt.savefig(f'./result/performance_{amount}.jpg')
+    plt.savefig(f'./result/l1_performance_{amount}.jpg')
     #plt.show()
       
       
