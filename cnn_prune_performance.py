@@ -71,7 +71,7 @@ class CNN(nn.Module):
 def measure_performance(model, data_loader):
     model.eval()
     start_time = time.time()
-    total, correct = 0,0
+    total, correct = 0, 0
     
     with torch.no_grad():
         for data, targets in data_loader:
@@ -95,14 +95,14 @@ if __name__ == '__main__':
     loss_func = nn.CrossEntropyLoss()
 
     #剪枝前的权重
-    torch.save(cnn.state_dict(), f'./result/cnn_random_initial_weights_{amount}.pth')
+    torch.save(cnn.state_dict(), f'./result/cnn_initial_weights_{amount}.pth')
 
-    #random_unstructured剪枝
-    prune.random_unstructured(cnn.conv1[0], name='weight', amount=amount)
+    #l1_unstructured剪枝
+    prune.l1_unstructured(cnn.conv1[0], name='weight', amount=amount)
     prune.remove(cnn.conv1[0], 'weight')
     
     #剪枝后的权重
-    torch.save(cnn.state_dict(), f'./result/cnn_random_pruned_weights_{amount}.pth')
+    torch.save(cnn.state_dict(), f'./result/cnn_pruned_weights_{amount}.pth')
 
     times, memories, accuracies = [], [], []
 
@@ -144,8 +144,9 @@ if __name__ == '__main__':
     plt.xlabel('Steps')
     plt.ylabel('Accuracy (%)')
     plt.legend()
+
     plt.tight_layout()
-    plt.savefig(f'./result/random_performance_{amount}.jpg')
+    plt.savefig(f'./result/performance_{amount}.jpg')
     
       
       
