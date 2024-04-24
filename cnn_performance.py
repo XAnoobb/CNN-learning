@@ -126,4 +126,4 @@ plt.ylabel('Accuracy (%)')
 plt.legend()
 
 plt.tight_layout()
-plt.show()
+plt.savefig(f'./cnn_result/cnn_performance.jpg')
