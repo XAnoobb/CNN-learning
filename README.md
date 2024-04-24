@@ -5,6 +5,9 @@ Learning how to lighten CNN neural networks and other attempts to manipulate the
 
 The following four functions provided by pytorch in structural and non-structural pruning were used to evaluate the performance after pruning for digit recognition of MNIST datasets implemented using CNN networks
 
+#Compare multiple training sessions with different amounts of pruning   
+amounts = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]  
+
 random_unstructured(module, name, amount)  
 cnn_randunstrc_performance.py   
 --> cnn_randunstrc_result  
